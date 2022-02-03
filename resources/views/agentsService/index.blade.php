@@ -19,55 +19,61 @@
                 </div>
             @endif
         </div>
-        @if ($agentsService->count() > 0)
-            <div class="table100 ver5 m-b-110">
-                <div class="table100-head">
-                    <table>
-                        <thead>
-                            <tr class="row100 head">
-                                <th class="cell100 column2 fw-bold ps-2">Code</th>
-                                <th class="cell100 column2 fw-bold">First name</th>
-                                <th class="cell100 column2 fw-bold">Last name</th>
-                                <th class="cell100 column2 fw-bold ps-4">Phone</th>
-                                <th class="cell100 column2 fw-bold ps-4">Birthdate</th>
-                                <th class="cell100 column2 fw-bold">Gender</th>
-                                <th class="cell100 column2 fw-bold ">Email</th>
-                                <th class="cell100 column1 fw-bold text-center">Action</th>
-                            </tr>
-                        </thead>
-                    </table>
+        <div class="container">
+            <div class="card recent-sales">
+                <div class="card-body">
+                    @if ($agentsService->count() > 0)
+                        <table class="table table-borderless datatable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">First name</th>
+                                    <th scope="col">Last name</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col">Birthdate</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($agentsService as $agentService)
+                                    <tr>
+                                        <th scope="row"><a href="#">#{{ $agentService->id }}</a></th>
+                                        <th scope="row"><a href="#">#{{ $agentService->code }}</a></th>
+                                        <td>{{ $agentService->user->first_name }}</td>
+                                        <td>{{ $agentService->user->last_name }}</td>
+                                        <td>{{ $agentService->user->phone }}</td>
+                                        <td>{{ $agentService->user->bidthdate }}</td>
+                                        <td>{{ $agentService->user->gender }}</td>
+                                        <td>{{ $agentService->user->email }}</td>
+                                        <td>
+                                            <div class="btn-group" role="group">
+                                                <form method="post"
+                                                    action=""
+                                                    onsubmit="return confirm('etes vous sûre de supprimer?')">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button class="badge bg-danger">Delete</button>
+                                                </form>
+                                                <a href="">
+                                                    <button class="badge bg-warning">Edit</button>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @else
+                        <div>Aucun service agent</div>
+                    @endif
                 </div>
 
-                <div class="table100-body js-pscroll">
-                    <table>
-                        <tbody>
-                            @foreach ($agentsService as $agentService)
-                                <tr class="row100 body p-5">
-                                    <td class="cell100 column2 ps-2">{{ $agentService->code }}</td>
-                                    <td class="cell100 column2">{{ $agentService->user->first_name }}</td>
-                                    <td class="cell100 column2">{{ $agentService->user->last_name }}</td>
-                                    <td class="cell100 column2">{{ $agentService->user->phone }}</td>
-                                    <td class="cell100 column2">{{ $agentService->user->bidthdate }}</td>
-                                    <td class="cell100 column2 ps-5">{{ $agentService->user->gender }}</td>
-                                    <td class="cell100 column2 ">{{ $agentService->user->email }}</td>
-                                    <td class="cell100 column1 text-center">
-                                        <div class="btn-group" role="group">
-                                            <form action="" method="post">
-                                                @csrf
-                                                <button class="btn btn-danger">Delete</button>
-                                            </form>
-                                            <button class="btn btn-warning">Edit</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
             </div>
-        @else
-            <div>Aucun doctor</div>
-        @endif
+        </div>
 
     </main>
+
 @endsection

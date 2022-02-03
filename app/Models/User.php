@@ -22,6 +22,7 @@ class User extends Authenticatable
         'last_name',
         'phone',
         'birthdate',
+        'avatar',
         'gender',
         'email',
         'password',
@@ -52,7 +53,7 @@ class User extends Authenticatable
     }
 
     public function agentService(){
-        return $this->hasOne(AgentService::class); 
+        return $this->hasOne(AgentService::class);
     }
-    
+
 }

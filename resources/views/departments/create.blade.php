@@ -41,7 +41,7 @@
                         <select style="width: 100%" name="department_chef_id" id="department_chef_id" required>
                             <option disabled selected class="text-muted">Department chef</option>
                             @foreach ($doctors as $doctor)
-                                <option value="{{ $doctor->user->id }}">
+                                <option value="{{ $doctor->id }}">
                                     {{ $doctor->user->first_name }}
                                     {{ $doctor->user->last_name }}
                                 </option>
@@ -50,22 +50,17 @@
                         <div class="input-icon"><i class="fas fa-hospital-user"></i></div>
                     </div>
                     <div class="input-group input-group-icon">
-                        {{-- <select class="selectpicker" data-show-subtext="true" data-live-search="true">
-                            <option data-tokens="name">name</option>
-                            <option data-tokens="family">family</option>
-                        </select> --}}
-                        <select class="selectpicker" data-live-search="true" name="materiel_Responsable_id" id="materiel_Responsable_id" required>
+                        <select style="width: 100%" name="materiel_Responsable_id" id="materiel_Responsable_id" required>
                             <option disabled selected class="text-muted">Department material manager</option>
                             @foreach ($agentServices as $agentService)
-                                <option value="{{ $doctor->user->id }}">
+                                <option value="{{ $agentService->id }}">
                                     {{ $agentService->user->first_name }}
                                     {{ $agentService->user->last_name }}
                                 </option>
                             @endforeach
                         </select>
-                        <div class="input-icon"><i class="fas fa-person-booth"></i></div>
+                        <div class="input-icon"><i class="fas fa-hospital-user"></i></div>
                     </div>
-
                 </div>
 
                 <div class="text-center mt-2">
@@ -76,3 +71,4 @@
     </main>
 
 @endsection
+

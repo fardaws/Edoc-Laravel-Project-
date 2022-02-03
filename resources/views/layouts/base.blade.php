@@ -31,10 +31,12 @@
     <link href="{{ asset('assets/vendor/quill/quill.bubble.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/simple-datatables/style.css') }}" rel="stylesheet">
+    {{-- select --}}
+    {{-- <link href="{{ asset('assets/vendor/bootstrap/css/choices.min.css') }}" rel="stylesheet"> --}}
 
     <!--select-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" rel="stylesheet" />
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" /> --}}
 
 
     <!-- Template Main CSS File -->
@@ -72,10 +74,29 @@
             $('.selectpicker').selectpicker();
         });
     </script> --}}
+
+    {{-- <script>
+        const sorting = document.querySelector('.selectpicker');
+        const commentSorting = document.querySelector('.selectpicker');
+        const sortingchoices = new Choices(sorting, {
+            placeholder: false,
+            itemSelectText: ''
+        });
+        // Trick to apply your custom classes to generated dropdown menu
+        let sortingClass = sorting.getAttribute('class');
+        window.onload = function() {
+            sorting.parentElement.setAttribute('class', sortingClass);
+        }
+
+    </script> --}}
+    {{-- select --}}
+    {{-- <script src="{{ asset('assets/vendor/bootstrap/js/choices.min.js') }}"></script> --}}
     <!--select-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script> --}}
+   {{-- JQuery --}}
+   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- Vendor JS Files -->
     <script src="{{ asset('assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

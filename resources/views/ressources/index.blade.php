@@ -19,54 +19,55 @@
                 </div>
             @endif
         </div>
-        @if ($ressources->count() > 0)
-            <div class="table100 ver5 m-b-110">
-                <div class="table100-head">
-                    <table>
-                        <thead>
-                            <tr class="row100 head">
-                                <th class="cell100 column1 ps-5">Name</th>
-                                <th class="cell100 column2">Reference</th>
-                                <th class="cell100 column4 text-center">Departement</th>
-                                <th class="cell100 column5 text-center">Action</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-
-                <div class="table100-body js-pscroll">
-                    <table>
-                        <tbody>
-                            @foreach ($ressources as $ressource)
-                                <tr class="row100 body">
-                                    <td class="cell100 column1 ps-5">{{ $ressource->name }}</td>
-                                    <td class="cell100 column2">{{ $ressource->reference }}</td>
-                                    <td class="cell100 column4 text-center">
-                                        {{ $ressource->department->name }}
-                                    </td>
-                                    <td class="cell100 column5 text-center">
-                                        <div class="btn-group" role="group">
-                                            <form method="post" action="{{ route('ressources.destroy', $ressource->id) }}"
-                                                onsubmit="return confirm('vous etes sûre de supprimer!')">
-                                                @csrf
-                                                @method('delete')
-                                                <button type="submit" class="btn btn-danger">Delete</button>
-                                            </form>
-                                            <a href="{{ route('ressources.edit', $ressource->id) }}">
-                                                <button class="btn btn-warning">Edit</button>
-                                            </a>
-                                        </div>
-                                    </td>
+        <div class="container">
+            <div class="card recent-sales">
+                <div class="card-body">
+                    @if ($ressources->count() > 0)
+                        <table class="table table-borderless datatable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Reference</th>
+                                    <th scope="col">Departement</th>
+                                    <th scope="col">Action</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($ressources as $ressource)
+                                    @if ($ressource->department)
+                                        <tr>
+                                            <th scope="row"><a href="#">#{{ $ressource->id }}</a></th>
+                                            <td>{{ $ressource->name }}</td>
+                                            <td>{{ $ressource->reference }}</td>
+                                            <td>{{ $ressource->department->name }}</td>
+                                            <td class="cell100 column5 text-center">
+                                                <div class="btn-group" role="group">
+                                                    <form method="post"
+                                                        action="{{ route('ressources.destroy', $ressource->id) }}"
+                                                        onsubmit="return confirm('vous etes sûre de supprimer!')">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="badge bg-danger">Delete</button>
+                                                    </form>
+                                                    <a href="{{ route('ressources.edit', $ressource->id) }}">
+                                                        <button class="badge bg-warning">Edit</button>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endif
+
+                                @endforeach
+                                </tr>
+                            </tbody>
+                        </table>
+                    @else
+                        <div>Aucun ressource</div>
+                    @endif
                 </div>
+
             </div>
-        @else
-            <div>Aucun ressource</div>
-        @endif
-
+        </div>
     </main>
-
 @endsection

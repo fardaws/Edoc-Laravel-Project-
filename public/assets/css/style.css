@@ -1248,11 +1248,16 @@ th, td {
   color: #b9b9b9;
   background-color: #e3e3e3;
 } */
+input[type="radio"] {
+    -ms-transform: scale(0.5); /* IE 9 */
+    -webkit-transform: scale(0.5); /* Chrome, Safari, Opera */
+    transform: scale(0.5);
+}
 h4 {
   color: #f0a500;
 }
 input,
-input[type="radio"] + label,
+label,
 input[type="checkbox"] + label:before,
 select option,
 select {
@@ -1278,10 +1283,10 @@ input:focus + .input-icon i {
 input:focus + .input-icon:after {
   border-right-color: #f0a500;
 }
-input[type="radio"] {
+/* input[type="radio"] {
   display: none;
-}
-input[type="radio"] + label,
+} */
+label,
 select {
   display: inline-block;
   width: 50%;
@@ -1289,18 +1294,18 @@ select {
   float: left;
   border-radius: 0;
 }
-input[type="radio"] + label:first-of-type {
+label:first-of-type {
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
 }
-input[type="radio"] + label:last-of-type {
+label:last-of-type {
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
-input[type="radio"] + label i {
+label i {
   padding-right: 0.4em;
 }
-input[type="radio"]:checked + label,
+label,
 input:checked + label:before,
 select:focus,
 select:active {
@@ -1465,6 +1470,6 @@ select option {
 
 }
 button:hover {
-  background: rgb(144, 233, 109);
+  background: rgb(64, 194, 12);
 }
 

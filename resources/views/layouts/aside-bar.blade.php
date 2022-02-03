@@ -59,11 +59,11 @@
                          <i class="bi bi-circle"></i><span>Doctors</span>
                      </a>
                  </li>
-                 <li>
+                 {{-- <li>
                      <a href="">
                          <i class="bi bi-circle"></i><span>Patients</span>
                      </a>
-                 </li>
+                 </li> --}}
                  <li>
                      <a href="{{ route('agentService.index') }}">
                          <i class="bi bi-circle"></i><span>Service Agent</span>

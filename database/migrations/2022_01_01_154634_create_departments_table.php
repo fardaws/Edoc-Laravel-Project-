@@ -26,7 +26,7 @@ class CreateDepartmentsTable extends Migration
                 ->on('agent_services')
                 ->onUpdate('cascade')
                 // ->cascadeOnUpdate()
-                ->onDelete('SET NULL'); 
+                ->onDelete('SET NULL');
                 // ->restrictOnDelete();
         });
 

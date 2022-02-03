@@ -43,7 +43,7 @@
                             <option disabled selected class="text-muted">Department chef</option>
                             @if ($doctors)
                                 @foreach ($doctors as $doctor)
-                                    <option value="{{ $doctor->user->id }}">
+                                    <option value="{{ $doctor->id}}">
                                         {{ $doctor->user->first_name }}
                                         {{ $doctor->user->last_name }}
                                     </option>
@@ -57,7 +57,7 @@
                         <select style="width: 100%" name="materiel_Responsable_id" id="materiel_Responsable_id" required>
                             <option disabled selected class="text-muted">Department material manager</option>
                             @foreach ($agentServices as $agentService)
-                                <option value="{{ $doctor->user->id }}">
+                                <option value="{{ $agentService->id }}">
                                     {{ $agentService->user->first_name }}
                                     {{ $agentService->user->last_name }}
                                 </option>

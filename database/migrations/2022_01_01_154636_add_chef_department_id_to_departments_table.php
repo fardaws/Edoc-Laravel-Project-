@@ -14,16 +14,16 @@ class AddChefDepartmentIdToDepartmentsTable extends Migration
     public function up()
     {
         Schema::table('departments', function (Blueprint $table) {
-            
+
             $table->unsignedBigInteger('department_chef_id')->nullable();
-            
+
             $table->foreign('department_chef_id')
                 ->references('id')
                 ->on('doctors')
                 ->onUpdate('cascade')
-                ->onDelete('SET NULL'); 
+                ->onDelete('SET NULL');
                 // ->cascadeOnUpdate()
-                // ->restrictOnDelete(); 
+                // ->restrictOnDelete();
         });
     }
 
